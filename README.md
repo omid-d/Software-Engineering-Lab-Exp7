@@ -180,6 +180,9 @@ class DefaultAction extends Action {
 ---
 ---
 
+در انتها فرمتر را نیز به `maven` به شکل زیر اضافه میکنیم.
+![image](https://github.com/user-attachments/assets/f9c136af-ff14-45af-8ead-3cbcdedb7ccb)
+و با دستور `mvn formatter:format` ران میکنیم.
 ## بخش دوم
 
 ### سوال اول
