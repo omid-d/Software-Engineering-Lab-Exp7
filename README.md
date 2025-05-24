@@ -275,10 +275,17 @@ Move Field (جابجایی فیلد)
 
 
 
-8. 
+8. **Lazy Class**
 
-9.
+همانطور که در تصویر زیر مشاهده می‌کنید، کلاس `CommandExecutor` متدهای کمی وجود دارد که توانایی ترکیب با کلاسهای دیگر را داشته باشد و بهتر است که متدهای بیشتر را استفاده کند.
+![image](https://github.com/user-attachments/assets/15b96690-1ed6-42d1-80c2-c5d89b7d501d)
 
-10.
+10. **Coupled, Inappropriate Intimacy**
+
+همانطور که در تصویر زیر مشخص است، کلاسهای `Phase2CodeGenerator` و `Phase2CodeFileManipulator` به مقدار زیادی از فیلدهای هم استفاده می‌کنند که میتواند بوی بد باشد.
+![image](https://github.com/user-attachments/assets/a294a712-a54b-4595-92c0-b7bad2513710)
+
+
+12. **Dispensables, dead code**
 
 ### سوال ششم
