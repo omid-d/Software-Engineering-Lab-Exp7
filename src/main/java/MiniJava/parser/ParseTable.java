@@ -16,8 +16,8 @@ public class ParseTable {
     private ArrayList<Map<NonTerminal, Integer>> gotoTable;
 
     public ParseTable(String jsonTable) throws Exception {
-        String resJsonTable = jsonTable.substring(2, jsonTable.length() - 2);
-        String[] Rows = resJsonTable.split("\\],\\[");
+        jsonTable = jsonTable.substring(2, jsonTable.length() - 2);
+        String[] Rows = jsonTable.split("\\],\\[");
         Map<Integer, Token> terminals = new HashMap<Integer, Token>();
         Map<Integer, NonTerminal> nonTerminals = new HashMap<Integer, NonTerminal>();
         Rows[0] = Rows[0].substring(1, Rows[0].length() - 1);
@@ -48,15 +48,19 @@ public class ParseTable {
             for (int j = 1; j < cols.length; j++) {
                 if (!cols[j].equals("")) {
                     if (cols[j].equals("acc")) {
-                        actionTable.get(actionTable.size() - 1).put(terminals.get(j), new Action(act.accept, 0));
+                        actionTable.get(actionTable.size() - 1).put(terminals.get(j), new AcceptAction(act.accept, 0));
                     } else if (terminals.containsKey(j)) {
-//                        try {
+
                         Token t = terminals.get(j);
-                        Action a = new Action(cols[j].charAt(0) == 'r' ? act.reduce : act.shift, Integer.parseInt(cols[j].substring(1)));
+                        Action a;
+                        if (cols[j].charAt(0) == 'r')
+                            a = new AcceptAction(act.reduce, Integer.parseInt(cols[j].substring(1)));
+                        else
+                            a = new ShiftAction(act.shift, Integer.parseInt(cols[j].substring(1)));
                         actionTable.get(actionTable.size() - 1).put(t, a);
-//                        }catch (StringIndexOutOfBoundsException e){
-//                            e.printStackTrace();
-//                        }
+
+
+
                     } else if (nonTerminals.containsKey(j)) {
                         gotoTable.get(gotoTable.size() - 1).put(nonTerminals.get(j), Integer.parseInt(cols[j]));
                     } else {
