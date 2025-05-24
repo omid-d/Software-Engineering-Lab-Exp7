@@ -278,14 +278,21 @@ Move Field (جابجایی فیلد)
 8. **Lazy Class**
 
 همانطور که در تصویر زیر مشاهده می‌کنید، کلاس `CommandExecutor` متدهای کمی وجود دارد که توانایی ترکیب با کلاسهای دیگر را داشته باشد و بهتر است که متدهای بیشتر را استفاده کند.
+
 ![image](https://github.com/user-attachments/assets/15b96690-1ed6-42d1-80c2-c5d89b7d501d)
 
 10. **Coupled, Inappropriate Intimacy**
 
 همانطور که در تصویر زیر مشخص است، کلاسهای `Phase2CodeGenerator` و `Phase2CodeFileManipulator` به مقدار زیادی از فیلدهای هم استفاده می‌کنند که میتواند بوی بد باشد.
+
 ![image](https://github.com/user-attachments/assets/a294a712-a54b-4595-92c0-b7bad2513710)
 
 
-12. **Dispensables, dead code**
+12. **Dispensables, Dead code**
+
+متد زیر فایده خاصی ندارد زیر در هر صورت پارامتر `successful` را تغییری نمیدهد و میتوان این بخش را حذف کرد بدون اینکه مشکلی ایجاد شود.
+
+![image](https://github.com/user-attachments/assets/f454b1bb-a3a6-45b2-af57-060ee6df1b77)
+
 
 ### سوال ششم
