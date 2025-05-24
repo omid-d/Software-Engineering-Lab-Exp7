@@ -1,14 +1,14 @@
 package MiniJava.semantic.symbol;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import MiniJava.codeGenerator.Address;
 import MiniJava.codeGenerator.Memory;
 import MiniJava.codeGenerator.TypeAddress;
 import MiniJava.codeGenerator.varType;
 import MiniJava.errorHandler.ErrorHandler;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SymbolTable {
     private Map<String, Klass> klasses;
@@ -36,6 +36,7 @@ public class SymbolTable {
     }
 
     public void addField(String fieldName, String className) {
+        mem.increaseDateAddress();
         klasses.get(className).Fields.put(fieldName, new Symbol(lastType, mem.getDateAddress()));
     }
 
@@ -55,6 +56,7 @@ public class SymbolTable {
         if (klasses.get(className).Methodes.get(methodName).localVariable.containsKey(localVariableName)) {
             ErrorHandler.printError("This variable already defined");
         }
+        mem.increaseDateAddress();
         klasses.get(className).Methodes.get(methodName).localVariable.put(localVariableName, new Symbol(lastType, mem.getDateAddress()));
 //        }catch (NullPointerException e){
 //            e.printStackTrace();
@@ -155,7 +157,9 @@ public class SymbolTable {
             this.codeAddress = codeAddress;
             this.returnType = returnType;
             this.orderdParameters = new ArrayList<>();
+            mem.increaseDateAddress();
             this.returnAddress = mem.getDateAddress();
+            mem.increaseDateAddress();
             this.callerAddress = mem.getDateAddress();
             this.parameters = new HashMap<>();
             this.localVariable = new HashMap<>();
@@ -168,6 +172,7 @@ public class SymbolTable {
         }
 
         public void addParameter(String parameterName) {
+            mem.increaseDateAddress();
             parameters.put(parameterName, new Symbol(lastType, mem.getDateAddress()));
             orderdParameters.add(parameterName);
         }
