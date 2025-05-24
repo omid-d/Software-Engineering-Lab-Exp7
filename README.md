@@ -176,9 +176,15 @@
 ![large2](src/main/pics/large2.png)
 ![large3](src/main/pics/large3.png)
 
-5.
+5. **Switch Statements**
+   
+در فایل `LexicalAnalyzer.java` یک بلوک `switch-case` بسیار بلند وجود دارد که یکی از نشانه‌های **کد بدبو (Code Smell)** است.  
+استفاده زیاد از `switch-case` به‌ویژه زمانی که تعداد حالات زیاد باشد، می‌تواند خوانایی کد را کاهش دهد، نگهداری آن را سخت‌تر کند و نشانه‌ای از نبود طراحی شی‌ء‌گرا باشد.  
+در این حالت، می‌توان با استفاده از **الگوی طراحی Strategy یا Polymorphism** این بخش را ساده‌تر و قابل توسعه‌تر کرد.
 
-6.
+![Screenshot 2025-05-24 140244](https://github.com/user-attachments/assets/c6c4d9af-b5b0-46ab-be7c-b6009d5ab9a0)
+
+
 
 7.
 
@@ -187,5 +193,7 @@
 9.
 
 10.
+
+11.
 
 ### سوال ششم
